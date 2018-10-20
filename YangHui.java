@@ -7,6 +7,7 @@ public class YangHui {
         System.out.print("Please input the deep of YangHuiTriangle: ");
         Scanner scan = new Scanner(System.in);
         int num = scan.nextInt();
+        scan.close();      // 关闭
 
         // 动态初始化二维数组，默认赋值为0
         int[][] arrIns = YangHuiTriangle(num);

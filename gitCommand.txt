@@ -1,0 +1,480 @@
+
+admin@hooware MINGW64 /d/git/gitDemo1 (master)
+$ pwd
+/d/git/gitDemo1
+
+admin@hooware MINGW64 /d/git/gitDemo1 (master)
+$ cd ..
+
+admin@hooware MINGW64 /d/git
+$ ll
+total 0
+drwxr-xr-x 1 admin 197609 0 10月 20 07:53 gitDemo1/
+
+admin@hooware MINGW64 /d/git
+$ mkdir gitDemo2
+
+admin@hooware MINGW64 /d/git
+$ cd gitDemo2/
+
+admin@hooware MINGW64 /d/git/gitDemo2
+$ ll
+total 0
+
+admin@hooware MINGW64 /d/git/gitDemo2
+$ git init
+Initialized empty Git repository in D:/git/gitDemo2/.git/
+
+admin@hooware MINGW64 /d/git/gitDemo2 (master)
+$ ll
+total 0
+
+admin@hooware MINGW64 /d/git/gitDemo2 (master)
+$ ll -a
+total 4
+drwxr-xr-x 1 admin 197609 0 10月 20 07:57 ./
+drwxr-xr-x 1 admin 197609 0 10月 20 07:57 ../
+drwxr-xr-x 1 admin 197609 0 10月 20 07:57 .git/
+
+admin@hooware MINGW64 /d/git/gitDemo2 (master)
+$ echo "second git test" >> test.txt
+
+admin@hooware MINGW64 /d/git/gitDemo2 (master)
+$ cat test.txt
+second git test
+
+admin@hooware MINGW64 /d/git/gitDemo2 (master)
+$ git add test.txt
+warning: LF will be replaced by CRLF in test.txt.
+The file will have its original line endings in your working directory
+
+admin@hooware MINGW64 /d/git/gitDemo2 (master)
+$ git commit -m "second git test"
+[master (root-commit) d575153] second git test
+ 1 file changed, 1 insertion(+)
+ create mode 100644 test.txt
+
+admin@hooware MINGW64 /d/git/gitDemo2 (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+
+
+
+admin@hooware MINGW64 /d/git/gitDemo3 (master)
+$ ll
+total 1
+-rw-r--r-- 1 admin 197609 14 10月 20 08:14 bash_Demo.txt
+
+admin@hooware MINGW64 /d/git/gitDemo3 (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        bash_Demo.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+admin@hooware MINGW64 /d/git/gitDemo3 (master)
+$ git add bash_Demo.txt
+
+admin@hooware MINGW64 /d/git/gitDemo3 (master)
+$ git commit -m "first commite"
+[master b16d829] first commite
+ 1 file changed, 1 insertion(+)
+ create mode 100644 bash_Demo.txt
+
+admin@hooware MINGW64 /d/git/gitDemo3 (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+admin@hooware MINGW64 /d/git/gitDemo3 (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   bash_Demo.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+admin@hooware MINGW64 /d/git/gitDemo3 (master)
+$ git add bash_Demo.txt
+
+admin@hooware MINGW64 /d/git/gitDemo3 (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   bash_Demo.txt
+
+
+admin@hooware MINGW64 /d/git/gitDemo3 (master)
+$ git reset HEAD bash_Demo.txt
+Unstaged changes after reset:
+M       bash_Demo.txt
+
+admin@hooware MINGW64 /d/git/gitDemo3 (master)
+$ git checkout --bash_Demo.txt
+error: unknown option `bash_Demo.txt'
+usage: git checkout [<options>] <branch>
+   or: git checkout [<options>] [<branch>] -- <file>...
+
+    -q, --quiet           suppress progress reporting
+    -b <branch>           create and checkout a new branch
+    -B <branch>           create/reset and checkout a branch
+    -l                    create reflog for new branch
+    --detach              detach HEAD at named commit
+    -t, --track           set upstream info for new branch
+    --orphan <new-branch>
+                          new unparented branch
+    -2, --ours            checkout our version for unmerged files
+    -3, --theirs          checkout their version for unmerged files
+    -f, --force           force checkout (throw away local modifications)
+    -m, --merge           perform a 3-way merge with the new branch
+    --overwrite-ignore    update ignored files (default)
+    --conflict <style>    conflict style (merge or diff3)
+    -p, --patch           select hunks interactively
+    --ignore-skip-worktree-bits
+                          do not limit pathspecs to sparse entries only
+    --ignore-other-worktrees
+                          do not check if another worktree is holding the givenref
+    --recurse-submodules[=<checkout>]
+                          control recursive updating of submodules
+    --progress            force progress reporting
+
+
+admin@hooware MINGW64 /d/git/gitDemo3 (master)
+$ git checkout -- bash_Demo.txt
+
+admin@hooware MINGW64 /d/git/gitDemo3 (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+admin@hooware MINGW64 /d/git/gitDemo3 (master)
+$ git add bash_Demo.txt
+
+admin@hooware MINGW64 /d/git/gitDemo3 (master)
+$ git commit -m "change"
+[master 90ca721] change
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+admin@hooware MINGW64 /d/git/gitDemo3 (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+admin@hooware MINGW64 /d/git/gitDemo3 (master)
+$ git log
+commit 90ca721cf2687096476fcbf229d175b35391d8d1 (HEAD -> master)
+Author: hooware <1411450483@qq.com>
+Date:   Sat Oct 20 08:18:33 2018 +0800
+
+    change
+
+commit b16d829552244844b7d35103571a889b9346d5f7
+Author: hooware <1411450483@qq.com>
+Date:   Sat Oct 20 08:15:02 2018 +0800
+
+    first commite
+
+commit cf799c91bfa359491aea339d0930e9359b37922d
+Author: hooware <1411450483@qq.com>
+Date:   Sat Oct 20 08:13:15 2018 +0800
+
+    delete
+
+commit 3e0f609b321286b68744f1a15a5c64767a5f7445
+Author: hooware <1411450483@qq.com>
+Date:   Sat Oct 20 08:09:25 2018 +0800
+
+    first Gui commite
+
+admin@hooware MINGW64 /d/git/gitDemo3 (master)
+$ ^C
+
+admin@hooware MINGW64 /d/git/gitDemo3 (master)
+$ ^C
+
+admin@hooware MINGW64 /d/git/gitDemo3 (master)
+$ git reset -hard b16d829552244844b7d35103571a889b9346d5f7
+error: did you mean `--hard` (with two dashes ?)
+
+admin@hooware MINGW64 /d/git/gitDemo3 (master)
+$ git reset --hard b16d829552244844b7d35103571a889b9346d5f7
+HEAD is now at b16d829 first commite
+
+admin@hooware MINGW64 /d/git/gitDemo3 (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+admin@hooware MINGW64 /d/git/gitDemo3 (master)
+$ git rm bash_Demo.txt
+rm 'bash_Demo.txt'
+
+admin@hooware MINGW64 /d/git/gitDemo3 (master)
+$ ll
+total 0
+
+admin@hooware MINGW64 /d/git/gitDemo3 (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        deleted:    bash_Demo.txt
+
+
+admin@hooware MINGW64 /d/git/gitDemo3 (master)
+$ git commit -m "delete"
+[master 1b8f2f5] delete
+ 1 file changed, 1 deletion(-)
+ delete mode 100644 bash_Demo.txt
+
+admin@hooware MINGW64 /d/git/gitDemo3 (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+admin@hooware MINGW64 /d/git/gitDemo3 (master)
+$ ll
+total 0
+
+admin@hooware MINGW64 /d/git/gitDemo3 (master)
+$ git log
+commit 1b8f2f5e33285530eca8916c652c5d8aa9b2804e (HEAD -> master)
+Author: hooware <1411450483@qq.com>
+Date:   Sat Oct 20 08:21:44 2018 +0800
+
+    delete
+
+commit b16d829552244844b7d35103571a889b9346d5f7
+Author: hooware <1411450483@qq.com>
+Date:   Sat Oct 20 08:15:02 2018 +0800
+
+    first commite
+
+commit cf799c91bfa359491aea339d0930e9359b37922d
+Author: hooware <1411450483@qq.com>
+Date:   Sat Oct 20 08:13:15 2018 +0800
+
+    delete
+
+commit 3e0f609b321286b68744f1a15a5c64767a5f7445
+Author: hooware <1411450483@qq.com>
+Date:   Sat Oct 20 08:09:25 2018 +0800
+
+    first Gui commite
+
+admin@hooware MINGW64 /d/git/gitDemo3 (master)
+$
+
+admin@hooware MINGW64 /d/git/day04 (master)
+$ ssh-keygen -t -rsa -C "1411450483@qq.com"
+unknown key type -rsa
+
+admin@hooware MINGW64 /d/git/day04 (master)
+$ ssh-keygen -t rsa -C "1411450483@qq.com"
+Generating public/private rsa key pair.
+Enter file in which to save the key (/c/Users/admin/.ssh/id_rsa):
+Created directory '/c/Users/admin/.ssh'.
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /c/Users/admin/.ssh/id_rsa.
+Your public key has been saved in /c/Users/admin/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:jOfFqvAI94dmlrI/kBo0WvM2ADnN9mZyrowV9UNrQIg 1411450483@qq.com
+The key's randomart image is:
++---[RSA 2048]----+
+| = o.            |
+|E = o .          |
+| + o + .         |
+|  O = =o .       |
+| + % o..S o      |
+|. o B  o o       |
+| +.=oo oo        |
+|. +o.=B..        |
+|    oB=o         |
++----[SHA256]-----+
+
+admin@hooware MINGW64 /d/git/day04 (master)
+$ pwd
+/d/git/day04
+
+admin@hooware MINGW64 /d/git/day04 (master)
+$ cd /c/Users/admin/.ssh/
+
+admin@hooware MINGW64 ~/.ssh
+$ pwd
+/c/Users/admin/.ssh
+
+admin@hooware MINGW64 ~/.ssh
+$ ls
+id_rsa  id_rsa.pub
+
+admin@hooware MINGW64 ~/.ssh
+$ cat id_rsa.pub
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDImoQHHNyLYA0bXPpMXB3fvgxvqvy2ybfboEFZiTjof1ist49g9x/kIH3lCvAhrLfjiRcB/weSr56l7iDnLyGKnA+oe+eAG22PHVuWB3RMyV6RCBiqshbbQOAiLSKpXLRk9DWpEQZQjeJ6SApZCOx2yUB6ceUlTdFg7UyQTE5jYGWojowdRFdjJhF2o6sokRMkwNrRGk35NQ24cISGtx6d6N2ewG0v/8CZe3hKbLLOLYlaQibAwjqR2kihQE8XUgcnLhxWVYSkAdHCwu0zlPPH075+owbm2uTfWN48tSip3rIsagCN26auFOPDp40M0WSEbYtj4wUj3h4nxBjixnKh 1411450483@qq.com
+
+admin@hooware MINGW64 ~/.ssh
+$ ssh -T git@github.com
+The authenticity of host 'github.com (192.30.253.112)' can't be established.
+RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
+Are you sure you want to continue connecting (yes/no)?
+Host key verification failed.
+
+admin@hooware MINGW64 ~/.ssh
+$ ssh -T git@github.com
+The authenticity of host 'github.com (192.30.253.112)' can't be established.
+RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'github.com,192.30.253.112' (RSA) to the list of known hosts.
+Hi hoowaynew! You've successfully authenticated, but GitHub does not provide shell access.
+
+admin@hooware MINGW64 ~/.ssh
+$ ssh -T git@github.com
+Hi hoowaynew! You've successfully authenticated, but GitHub does not provide shell access.
+
+admin@hooware MINGW64 ~/.ssh
+$ cd d:/git
+
+admin@hooware MINGW64 /d/git
+$ ls
+day04/          gitDemo1/  gitDemo3/   java_game.rar  snake.zip
+gitCommand.txt  gitDemo2/  java_game/  snake/
+
+admin@hooware MINGW64 /d/git
+$ cd day04/
+
+admin@hooware MINGW64 /d/git/day04 (master)
+$ ls
+BubbleSort.java  JuXing.java      ShellSort.java  YangHui.java
+InsertSort.java  SelectSort.java  YangHui.class
+
+admin@hooware MINGW64 /d/git/day04 (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   YangHui.java
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        .vscode/
+        YangHui.class
+
+
+admin@hooware MINGW64 /d/git/day04 (master)
+$ git branch
+* master
+
+admin@hooware MINGW64 /d/git/day04 (master)
+$ git branch fetch1
+
+admin@hooware MINGW64 /d/git/day04 (master)
+$ branch
+bash: branch: command not found
+
+admin@hooware MINGW64 /d/git/day04 (master)
+$ git branch
+  fetch1
+* master
+
+admin@hooware MINGW64 /d/git/day04 (master)
+$ git remote add origin git@github.com/hoowaynew/MyArithmeticDemo.git
+
+admin@hooware MINGW64 /d/git/day04 (master)
+$ git push -u origin master
+fatal: 'git@github.com/hoowaynew/MyArithmeticDemo.git' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+admin@hooware MINGW64 /d/git/day04 (master)
+$ git remote add origin git@github.com:hoowaynew/MyArithmeticDemo.git
+fatal: remote origin already exists.
+
+admin@hooware MINGW64 /d/git/day04 (master)
+$ git remote add origin git@github.com/hoowaynew/MyArithmeticDemo.git
+fatal: remote origin already exists.
+
+admin@hooware MINGW64 /d/git/day04 (master)
+$ git push -u origin master
+fatal: 'git@github.com/hoowaynew/MyArithmeticDemo.git' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+admin@hooware MINGW64 /d/git/day04 (master)
+$ git remote rm origin
+
+admin@hooware MINGW64 /d/git/day04 (master)
+$ git remote add origin
+usage: git remote add [<options>] <name> <url>
+
+    -f, --fetch           fetch the remote branches
+    --tags                import all tags and associated objects when fetching
+                          or do not fetch any tag at all (--no-tags)
+    -t, --track <branch>  branch(es) to track
+    -m, --master <branch>
+                          master branch
+    --mirror[=(push|fetch)]
+                          set up remote as a mirror to push to or fetch from
+
+
+admin@hooware MINGW64 /d/git/day04 (master)
+$ git remote add origin git@github.com:hoowaynew/MyArithmeticDemo.git
+
+admin@hooware MINGW64 /d/git/day04 (master)
+$ git push -u origin master
+Enumerating objects: 17, done.
+Counting objects: 100% (17/17), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (16/16), done.
+Writing objects: 100% (17/17), 3.62 KiB | 308.00 KiB/s, done.
+Total 17 (delta 7), reused 0 (delta 0)
+remote: Resolving deltas: 100% (7/7), done.
+remote:
+remote: Create a pull request for 'master' on GitHub by visiting:
+remote:      https://github.com/hoowaynew/MyArithmeticDemo/pull/new/master
+remote:
+To github.com:hoowaynew/MyArithmeticDemo.git
+ * [new branch]      master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+
+admin@hooware MINGW64 /d/git/day04 (master)
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   YangHui.java
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        .vscode/
+        YangHui.class
+
+
+admin@hooware MINGW64 /d/git/day04 (master)
+$ git push
+Everything up-to-date
+
+admin@hooware MINGW64 /d/git/day04 (master)
+$
+
+
